@@ -3,402 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Sales - Kevin Yamaha Magelang</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00d2ff;
-            --primary-dark: #0099cc;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --card-bg: #ffffff;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: #f1f5f9;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* Top Bar Dashboard */
-        .dashboard-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--primary);
-        }
-
-        .dashboard-header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .dashboard-header h1 span {
-            color: var(--primary);
-        }
-
-        .dashboard-header p {
-            color: #94a3b8;
-            font-size: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .badge-status {
-            display: inline-block;
-            background: rgba(0, 210, 255, 0.15);
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 15px;
-            border: 1px solid rgba(0, 210, 255, 0.3);
-        }
-
-        /* Main Container */
-        .main-container {
-            max-width: 1100px;
-            margin: -30px auto 40px auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Quick Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 35px;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            padding: 24px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-icon {
-            width: 55px;
-            height: 55px;
-            background: rgba(0, 210, 255, 0.1);
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .stat-info h4 {
-            font-size: 14px;
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        .stat-info p {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        /* Catalog Section */
-        .section-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-
-        .product-card:hover {
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
-            transform: translateY(-5px);
-        }
-
-        .product-image-box {
-            background: #f8fafc;
-            padding: 25px;
-            text-align: center;
-            position: relative;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .product-image-box img {
-            max-width: 100%;
-            height: 160px;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover .product-image-box img {
-            transform: scale(1.05);
-        }
-
-        .tag-dp {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ef4444;
-            color: white;
-            padding: 5px 12px;
-            font-size: 12px;
-            font-weight: 700;
-            border-radius: 8px;
-        }
-
-        .product-content {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .product-desc {
-            font-size: 14px;
-            color: var(--gray);
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 15px;
-            margin-top: auto;
-        }
-
-        .price-label {
-            font-size: 12px;
-            color: var(--gray);
-        }
-
-        .price-value {
-            font-size: 16px;
-            font-weight: 700;
-            color: #0d9488;
-        }
-
-        .btn-inquire {
-            background: var(--dark);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .btn-inquire:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Floating WhatsApp Button */
-        .floating-wa {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: white;
-            padding: 14px 24px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 15px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            z-index: 100;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .floating-wa:hover {
-            background-color: #1ebe5d;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .footer-dashboard {
-            text-align: center;
-            padding: 30px;
-            background: #0f172a;
-            color: #94a3b8;
-            font-size: 14px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 768px) {
-            .dashboard-header { padding: 30px 15px; }
-            .dashboard-header h1 { font-size: 22px; }
-        }
-    </style>
+    <title>E-Katalog Resmi Yamaha - Showroom Digital</title>
+    <!-- Google Fonts & FontAwesome untuk Ikon -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Dashboard -->
-    <div class="dashboard-header">
-        <h1>SHOWROOM DIGITAL <span>KEVIN YAMAHA</span></h1>
-        <p>Pusat Informasi Resmi, Katalog Interaktif, dan Konsultasi Pembelian Motor Yamaha Terbaik di Magelang.</p>
-        <div class="badge-status">🟢 Status: Melayani Pesanan & Konsultasi Online</div>
-    </div>
-
-    <!-- Main Content Area -->
-    <div class="main-container">
-
-        <!-- Quick Metrics / Keunggulan -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon">⚡</div>
-                <div class="stat-info">
-                    <h4>Proses Kredit</h4>
-                    <p>Cepat & Dipermudah</p>
-                </div>
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span>YAMAHA E-KATALOG</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">🎁</div>
-                <div class="stat-info">
-                    <h4>Bonus Spesial</h4>
-                    <p>Helm, Jaket & Potongan</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">📍</div>
-                <div class="stat-info">
-                    <h4>Area Layanan</h4>
-                    <p>Kota & Kab. Magelang</p>
-                </div>
+            <div class="contact-badge">
+                <i class="fa-brands fa-whatsapp"></i> 0889-8094-2762
             </div>
         </div>
+    </header>
 
-        <!-- Katalog Produk -->
-        <h2 class="section-title">🏍️ Katalog & Estimasi Unit Unggulan</h2>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>PILIHAN MOTOR YAMAHA TERLENGKAP</h1>
+            <p>Temukan kendaraan impian Anda dengan teknologi terbaru, performa garang, dan gaya maksimal.</p>
+        </div>
+    </section>
+
+    <!-- Katalog Produk -->
+    <main class="container catalog-section">
+        <h2 class="section-title">Katalog & Spesifikasi Model</h2>
         
-        <div class="product-grid">
+        <div class="motor-grid">
             
-            <!-- Produk 1 -->
-            <div class="product-card">
-                <div class="product-image-box">
-                    <span class="tag-dp">DP Ringan</span>
-                    <img src="https://www.yamaha-motor.co.id/uploads/products/front_parameter/nmax-neo-s.png" alt="NMAX Neo / Turbo">
+            <!-- 1. NMAX TURBO -->
+            <div class="motor-card">
+                <div class="card-image bg-gradient-1">
+                    <span class="badge turbo">MAXI</span>
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=500&auto=format&fit=crop" alt="NMAX Turbo">
                 </div>
-                <div class="product-content">
-                    <h3 class="product-title">MAXi Series (NMAX / Aerox / Lexi)</h3>
-                    <p class="product-desc">Performa mesin bertenaga tinggi, fitur modern Y-Connect, dan posisi berkendara super nyaman untuk harian maupun touring.</p>
-                    <div class="product-footer">
-                        <div>
-                            <span class="price-label">Mulai DP</span>
-                            <div class="price-value">Rp 1.500.000</div>
-                        </div>
-                        <a href="https://wa.me/6282220270373?text=Halo%20Kak%20Kevin,%20saya%20tertarik%20dengan%20MAXi%20Series%20(NMAX/Aerox).%20Bisa%20minta%20simulasi%20kreditnya?" class="btn-inquire" target="_blank">Tanya Promo</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produk 2 -->
-            <div class="product-card">
-                <div class="product-image-box">
-                    <span class="tag-dp" style="background: #10b981;">Best Seller</span>
-                    <img src="https://www.yamaha-motor.co.id/uploads/products/front_parameter/fazzio-hybrid-lux.png" alt="Fazzio Hybrid">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">Classy Series (Fazzio / Grand Filano)</h3>
-                    <p class="product-desc">Desain retro modern yang stylish, bagasi super luas, serta teknologi Blue Core Hybrid yang membuat berkendara makin irit.</p>
-                    <div class="product-footer">
-                        <div>
-                            <span class="price-label">Mulai DP</span>
-                            <div class="price-value">Rp 1.000.000</div>
-                        </div>
-                        <a href="https://wa.me/6282220270373?text=Halo%20Kak%20Kevin,%20saya%20tertarik%20dengan%20Classy%20Series%20(Fazzio/Grand%20Filano).%20Bisa%20minta%20simulasi%20kreditnya?" class="btn-inquire" target="_blank">Tanya Promo</a>
-                    </div>
+                <div class="card-body">
+                    <h3>Yamaha NMAX "TURBO"</h3>
+                    <p class="tagline">YECVT & TFT Infotainment Navigation System[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span)</p>
+                    <ul class="spec-list">
+                        <li><i class="fa-solid fa-gauge"></i> Mesin 155cc Blue Core + VVA[span_2](start_span)[span_2](end_span)</li>
+                        <li><i class="fa-solid fa-sliders"></i> Riding Mode (T-Mode & S-Mode)[span_3](start_span)[span_3](end_span)</li>
+                        <li><i class="fa-solid fa-key"></i> Smart Key System[span_4](start_span)[span_4](end_span)</li>
+                    </ul>
+                    <a href="https://wa.me/6288980942762?text=Halo%2C%20saya%20tertarik%20dengan%20Yamaha%20NMAX%20Turbo.%20Bisa%20minta%20info%20harga%20dan%20simulasi%20kreditnya%3F" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya / Pesan Sekarang
+                    </a>
                 </div>
             </div>
 
-            <!-- Produk 3 -->
-            <div class="product-card">
-                <div class="product-image-box">
-                    <span class="tag-dp" style="background: #6366f1;">Ekonomis</span>
-                    <img src="https://www.yamaha-motor.co.id/uploads/products/front_parameter/gear-125.png" alt="Gear 125">
+            <!-- 2. AEROX ALPHA / TURBO -->
+            <div class="motor-card">
+                <div class="card-image bg-gradient-2">
+                    <span class="badge sport">SPORTY MATIC</span>
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=500&auto=format&fit=crop" alt="Aerox Alpha">
                 </div>
-                <div class="product-content">
-                    <h3 class="product-title">Matic Standard (Gear 125 / Mio M3)</h3>
-                    <p class="product-desc">Motor matic multifungsi yang lincah, tangguh untuk segala aktivitas harian, bodi ramping, dan harga paling bersahabat.</p>
-                    <div class="product-footer">
-                        <div>
-                            <span class="price-label">Mulai DP</span>
-                            <div class="price-value">Rp 800.000</div>
-                        </div>
-                        <a href="https://wa.me/6282220270373?text=Halo%20Kak%20Kevin,%20saya%20tertarik%20dengan%20Matic%20Standard%20(Gear%20125/Mio).%20Bisa%20minta%20simulasi%20kreditnya?" class="btn-inquire" target="_blank">Tanya Promo</a>
-                    </div>
+                <div class="card-body">
+                    <h3>Yamaha Aerox "TURBO" / Alpha</h3>
+                    <p class="tagline">Maximalin gaya lo dengan performa agresif[span_5](start_span)[span_5](end_span)</p>
+                    <ul class="spec-list">
+                        <li><i class="fa-solid fa-bolt"></i> New 155cc Engine & YECVT[span_6](start_span)[span_6](end_span)</li>
+                        <li><i class="fa-solid fa-lightbulb"></i> LED Head Light Double Projector[span_7](start_span)[span_7](end_span)</li>
+                        <li><i class="fa-solid fa-box"></i> Big Luggage Capacity 24.5L[span_8](start_span)[span_8](end_span)</li>
+                    </ul>
+                    <a href="https://wa.me/6288980942762?text=Halo%2C%20saya%20tertarik%20dengan%20Yamaha%20Aerox%20Turbo.%20Bisa%20minta%20info%20harga%20dan%20simulasi%20kreditnya%3F" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya / Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. GRAND FILANO HYBRID -->
+            <div class="motor-card">
+                <div class="card-image bg-gradient-3">
+                    <span class="badge classy">CLASSY</span>
+                    <img src="https://images.unsplash.com/photo-1609630875172-2aa55c5e032e?q=80&w=500&auto=format&fit=crop" alt="Grand Filano">
+                </div>
+                <div class="card-body">
+                    <h3>Yamaha Grand Filano Hybrid</h3>
+                    <p class="tagline">The Next Level of State of Statement[span_9](start_span)[span_9](end_span)</p>
+                    <ul class="spec-list">
+                        <li><i class="fa-solid fa-leaf"></i> Blue Core Hybrid 125cc[span_10](start_span)[span_10](end_span)</li>
+                        <li><i class="fa-solid fa-suitcase"></i> Spacious Luggage 27L with LED Lamp[span_11](start_span)[span_11](end_span)</li>
+                        <li><i class="fa-solid fa-gas-pump"></i> Smart Front Refuel[span_12](start_span)[span_12](end_span)</li>
+                    </ul>
+                    <a href="https://wa.me/6288980942762?text=Halo%2C%20saya%20tertarik%20dengan%20Yamaha%20Grand%20Filano%20Hybrid.%20Bisa%20minta%20info%20harga%20dan%20simulasi%20kreditnya%3F" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya / Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. FAZZIO HYBRID -->
+            <div class="motor-card">
+                <div class="card-image bg-gradient-4">
+                    <span class="badge classy">CLASSY</span>
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=500&auto=format&fit=crop" alt="Fazzio">
+                </div>
+                <div class="card-body">
+                    <h3>Yamaha Fazzio Hybrid</h3>
+                    <p class="tagline">Apapun skena lo, motornya Fazzio Hybrid[span_13](start_span)[span_13](end_span)!</p>
+                    <ul class="spec-list">
+                        <li><i class="fa-solid fa-wifi"></i> Y-Connect & Connected Lux/Neo[span_14](start_span)[span_14](end_span)</li>
+                        <li><i class="fa-solid fa-bag-shopping"></i> Spacious Luggage 17.8L[span_15](start_span)[span_15](end_span)</li>
+                        <li><i class="fa-solid fa-charging-station"></i> Double Hook Carabiner & USB Socket[span_16](start_span)[span_16](end_span)</li>
+                    </ul>
+                    <a href="https://wa.me/6288980942762?text=Halo%2C%20saya%20tertarik%20dengan%20Yamaha%20Fazzio%20Hybrid.%20Bisa%20minta%20info%20harga%20dan%20simulasi%20kreditnya%3F" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya / Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. FREEGO 125 -->
+            <div class="motor-card">
+                <div class="card-image bg-gradient-5">
+                    <span class="badge matic">GENERASI 125</span>
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=500&auto=format&fit=crop" alt="FreeGo 125">
+                </div>
+                <div class="card-body">
+                    <h3>Yamaha FreeGo 125 Connected</h3>
+                    <p class="tagline">Mudahkan harimu, isi bensin di depan[span_17](start_span)[span_17](end_span)</p>
+                    <ul class="spec-list">
+                        <li><i class="fa-solid fa-gas-pump"></i> Bagasi Luas 25 Liter (Sama dengan NMax)[span_18](start_span)[span_18](end_span)</li>
+                        <li><i class="fa-solid fa-shield-halved"></i> Smart Key System & Electric Power Socket[span_19](start_span)[span_19](end_span)</li>
+                        <li><i class="fa-solid fa-fire"></i> Blue Core 50% Lebih Irit[span_20](start_span)[span_20](end_span)</li>
+                    </ul>
+                    <a href="https://wa.me/6288980942762?text=Halo%2C%20saya%20tertarik%20dengan%20Yamaha%20FreeGo%20125.%20Bisa%20minta%20info%20harga%20dan%20simulasi%20kreditnya%3F" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya / Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. ALL NEW R15M CONNECTED -->
+            <div class="motor-card">
+                <div class="card-image bg-gradient-6">
+                    <span class="badge sport">SUPER SPORT</span>
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=500&auto=format&fit=crop" alt="R15M">
+                </div>
+                <div class="card-body">
+                    <h3>Yamaha All New R15M Connected</h3>
+                    <p class="tagline">Connect with R-Spirit[span_21](start_span)[span_21](end_span)</p>
+                    <ul class="spec-list">
+                        <li><i class="fa-solid fa-gauge-high"></i> Quick Shifter & Traction Control System (TCS)[span_22](start_span)[span_22](end_span)</li>
+                        <li><i class="fa-solid fa-gears"></i> A&S Clutch & 155cc Engine with VVA[span_23](start_span)[span_23](end_span)</li>
+                        <li><i class="fa-solid fa-shield"></i> Deltabox Frame & Upside Down Suspension</li>
+                    </ul>
+                    <a href="https://wa.me/6288980942762?text=Halo%2C%20saya%20tertarik%20dengan%20Yamaha%20R15M%20Connected.%20Bisa%20minta%20info%20harga%20dan%20simulasi%20kreditnya%3F" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya / Pesan Sekarang
+                    </a>
                 </div>
             </div>
 
         </div>
-
-    </div>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6282220270373?text=Halo%20Kak%20Kevin,%20saya%20mau%20konsultasi%20pembelian%20motor%20Yamaha%20di%20Magelang" class="floating-wa" target="_blank">
-        💬 Chat WhatsApp Kevin
-    </a>
+    </main>
 
     <!-- Footer -->
-    <div class="footer-dashboard">
-        <p>&copy; 2026 Kevin Yamaha Magelang. All Rights Reserved. | Sales Executive Resmi Yamaha</p>
-    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Yamaha E-Katalog Official. Hubungi Instagram: <a href="https://instagram.com/ya_rositt" target="_blank">@ya_rositt</a></p>
+        </div>
+    </footer>
 
 </body>
 </html>
