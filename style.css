@@ -1,6 +1,3 @@
-/* ===================================================
-   DESAIN PREMIUM YAMAHA OFFICIAL (DARK OBSIDIAN THEME)
-   =================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -34,9 +31,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ===================================================
-   ANIMASI INTRO BURUNG HD 3D MEWAH ("DARRR!")
-   =================================================== */
 #welcome-intro {
     position: fixed;
     top: 0;
@@ -132,9 +126,6 @@ body {
     }
 }
 
-/* ===================================================
-   MAIN CONTAINER & STYLING KATALOG
-   =================================================== */
 .app-container {
     width: 100%;
     max-width: 480px;
@@ -205,9 +196,6 @@ body {
     margin-top: 4px;
 }
 
-/* ===================================================
-   PRODUCT CARD & SWIPER SLIDER
-   =================================================== */
 .product-list {
     padding: 12px 16px 24px 16px;
 }
