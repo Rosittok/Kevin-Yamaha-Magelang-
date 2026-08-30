@@ -3,45 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yamaha Magelang - E-Katalog App</title>
+    <title>Yamaha Magelang - E-Katalog Official</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Pembungkus Layar ala Aplikasi Mobile -->
     <div class="app-container">
         
-        <!-- Header (Logo, Lokasi, Notifikasi) -->
+        <!-- App Bar -->
         <header class="app-header">
             <div class="logo">
                 <span class="logo-red">YAMAHA</span>
             </div>
             <div class="location">
                 <i class="fa-solid fa-location-dot"></i>
-                <span>Magelang, Indonesia</span>
-                <i class="fa-solid fa-chevron-down arrow"></i>
+                <span>Magelang, Jawa Tengah</span>
             </div>
             <div class="notification">
                 <i class="fa-solid fa-bell"></i>
             </div>
         </header>
 
-        <!-- Kotak Pencarian -->
+        <!-- Search Bar -->
         <div class="search-container">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cari...">
+                <input type="text" placeholder="Cari NMAX, Fazzio, Aerox...">
             </div>
         </div>
 
-        <!-- Banner Promo -->
-        <div class="banner-container">
-            <img src="https://www.yamaha-motor.co.id/uploads/banner/06_Banner_Website_Fazzio_1200x400_px.jpg" alt="Promo Yamaha">
-        </div>
-
-        <!-- Kategori (Bisa di-scroll ke samping) -->
+        <!-- Category Menu -->
         <div class="category-scroll">
             <div class="cat-item active">
                 <div class="cat-icon"><i class="fa-solid fa-motorcycle"></i></div>
@@ -49,7 +42,7 @@
             </div>
             <div class="cat-item">
                 <div class="cat-icon"><i class="fa-solid fa-bolt"></i></div>
-                <span>Maxi</span>
+                <span>MAXi</span>
             </div>
             <div class="cat-item">
                 <div class="cat-icon"><i class="fa-solid fa-gauge-high"></i></div>
@@ -59,65 +52,127 @@
                 <div class="cat-icon"><i class="fa-solid fa-scooter"></i></div>
                 <span>Matic</span>
             </div>
-            <div class="cat-item">
-                <div class="cat-icon"><i class="fa-solid fa-moped"></i></div>
-                <span>Moped</span>
-            </div>
         </div>
 
-        <!-- Daftar Produk -->
+        <!-- Product Listing -->
         <div class="product-list">
             
             <!-- Motor 1: Grand Filano -->
             <div class="product-card">
                 <div class="product-image-box">
-                    <!-- URL Gambar menggunakan foto resmi Yamaha (Latar putih akan otomatis jadi transparan berkat CSS) -->
-                    <img src="https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/202301171016259021V65392.png" alt="Grand Filano">
+                    <img src="https://images.unsplash.com/photo-1609630875172-2aa55c5e032e?auto=format&fit=crop&w=600&q=80" alt="Yamaha Grand Filano">
                 </div>
                 <div class="product-info">
-                    <h3>Grand Filano Hybrid</h3>
-                    <p class="price">Opsi: LUX / NEO</p>
-                    <ul class="detail-specs">
-                        <li>Blue Core Hybrid 125cc</li>
-                        <li>TFT Sub Display & Smart Key</li>
-                    </ul>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20saya%20mau%20tanya%20harga%20dan%20promo%20Grand%20Filano%20Hybrid." class="btn-pesan">Pesan Sekarang</a>
+                    <span class="tag-category">Classy Yamaha</span>
+                    <h3>Yamaha Grand Filano Hybrid</h3>
+                    <p class="tagline">The Next Level of Fashion</p>
+                    
+                    <div class="spec-grid">
+                        <div class="spec-item"><i class="fa-solid fa-engine"></i> 125cc Hybrid</div>
+                        <div class="spec-item"><i class="fa-solid fa-box"></i> Bagasi 27 Litres</div>
+                        <div class="spec-item"><i class="fa-solid fa-key"></i> Smart Key System</div>
+                        <div class="spec-item"><i class="fa-solid fa-mobile-screen"></i> TFT Sub Display</div>
+                    </div>
+
+                    <div class="color-options">
+                        <span>Pilihan Warna:</span>
+                        <div class="color-dots">
+                            <span class="dot pink" title="Pink Mauve"></span>
+                            <span class="dot white" title="Lux White"></span>
+                            <span class="dot blue" title="Dull Blue"></span>
+                            <span class="dot black" title="Black"></span>
+                        </div>
+                    </div>
+
+                    <div class="promo-box">
+                        <i class="fa-solid fa-tags"></i> Promo Angsuran Murah Magelang
+                    </div>
+
+                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20saya%20tertarik%20dengan%20Yamaha%20Grand%20Filano%20Hybrid.%20Bisa%20minta%20info%20DP%20dan%20angsurannya%3F" class="btn-pesan">
+                        <i class="fa-brands fa-whatsapp"></i> Minta Brosur & Simulasi DP
+                    </a>
                 </div>
             </div>
 
-            <!-- Motor 2: Fazzio -->
+            <!-- Motor 2: Fazzio Hybrid -->
             <div class="product-card">
                 <div class="product-image-box">
-                    <img src="https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2024093014165682859W3375.png" alt="Fazzio">
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" alt="Yamaha Fazzio">
                 </div>
                 <div class="product-info">
-                    <h3>Fazzio Hybrid</h3>
-                    <p class="price">Opsi: LUX / NEO / HYBRID</p>
-                    <ul class="detail-specs">
-                        <li>Y-Connect Smartphone</li>
-                        <li>Spacious Luggage 17.8L</li>
-                    </ul>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20saya%20mau%20tanya%20harga%20dan%20promo%20Fazzio%20Hybrid." class="btn-pesan">Pesan Sekarang</a>
+                    <span class="tag-category">Classy Yamaha</span>
+                    <h3>Yamaha Fazzio Hybrid-Connected</h3>
+                    <p class="tagline">White Style, Smart Motion</p>
+                    
+                    <div class="spec-grid">
+                        <div class="spec-item"><i class="fa-solid fa-engine"></i> 125cc Blue Core</div>
+                        <div class="spec-item"><i class="fa-solid fa-wifi"></i> Y-Connect App</div>
+                        <div class="spec-item"><i class="fa-solid fa-charging-station"></i> Electric Power Socket</div>
+                        <div class="spec-item"><i class="fa-solid fa-suitcase"></i> Bagasi 17.8 Litres</div>
+                    </div>
+
+                    <div class="color-options">
+                        <span>Pilihan Warna:</span>
+                        <div class="color-dots">
+                            <span class="dot cyan" title="Mint"></span>
+                            <span class="dot red" title="Red"></span>
+                            <span class="dot yellow" title="Yellow"></span>
+                            <span class="dot black" title="Black"></span>
+                        </div>
+                    </div>
+
+                    <div class="promo-box">
+                        <i class="fa-solid fa-tags"></i> Cashback Spesial Bulan Ini
+                    </div>
+
+                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20saya%20tertarik%20dengan%20Yamaha%20Fazzio%20Hybrid.%20Bisa%20minta%20info%20DP%20dan%20angsurannya%3F" class="btn-pesan">
+                        <i class="fa-brands fa-whatsapp"></i> Minta Brosur & Simulasi DP
+                    </a>
                 </div>
             </div>
 
             <!-- Motor 3: NMAX Turbo -->
             <div class="product-card">
                 <div class="product-image-box">
-                    <img src="https://www.yamaha-motor.co.id/uploads/products/new_product_model_image/2024061218520868128Q8637.png" alt="NMAX Turbo">
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" alt="Yamaha NMAX Turbo">
                 </div>
                 <div class="product-info">
-                    <h3>NMAX "TURBO"</h3>
-                    <p class="price">Teknologi YECVT Terbaru</p>
-                    <ul class="detail-specs">
-                        <li>Mesin 155cc VVA generasi 3</li>
-                        <li>TFT Infotainment Navigation</li>
-                    </ul>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20saya%20mau%20tanya%20harga%20dan%20promo%20NMAX%20Turbo." class="btn-pesan">Pesan Sekarang</a>
+                    <span class="tag-category maxi">MAXi Yamaha</span>
+                    <h3>Yamaha NMAX "TURBO" Tech MAX</h3>
+                    <p class="tagline">Turbolook, High Performance</p>
+                    
+                    <div class="spec-grid">
+                        <div class="spec-item"><i class="fa-solid fa-engine"></i> 155cc VVA YECVT</div>
+                        <div class="spec-item"><i class="fa-solid fa-sliders"></i> Dual Riding Mode</div>
+                        <div class="spec-item"><i class="fa-solid fa-map-location-dot"></i> Garmin Navigation</div>
+                        <div class="spec-item"><i class="fa-solid fa-shield"></i> Dual Channel ABS</div>
+                    </div>
+
+                    <div class="color-options">
+                        <span>Pilihan Warna:</span>
+                        <div class="color-dots">
+                            <span class="dot darkblue" title="Elixir Dark Silver"></span>
+                            <span class="dot black" title="Magma Black"></span>
+                        </div>
+                    </div>
+
+                    <div class="promo-box">
+                        <i class="fa-solid fa-fire"></i> Unit Ready Stock Magelang
+                    </div>
+
+                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20saya%20tertarik%20dengan%20Yamaha%20NMAX%20Turbo.%20Bisa%20minta%20info%20DP%20dan%20angsurannya%3F" class="btn-pesan">
+                        <i class="fa-brands fa-whatsapp"></i> Minta Brosur & Simulasi DP
+                    </a>
                 </div>
             </div>
 
         </div>
+
+        <footer class="app-footer">
+            <p><strong>Yamaha Sales Magelang</strong></p>
+            <p>Hubungi Mas Kevin (WhatsApp: 0889-8094-2762)</p>
+            <p>Instagram: @ya_rositt</p>
+        </footer>
 
     </div>
 
