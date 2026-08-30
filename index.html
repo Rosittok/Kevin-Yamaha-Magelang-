@@ -15,30 +15,12 @@
 <body>
 
     <div id="welcome-intro">
-        <div class="intro-overlay"></div>
-        <div class="bird-3d-wrapper">
-            <svg class="hd-eagle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#00d2ff"/>
-                        <stop offset="50%" stop-color="#002060"/>
-                        <stop offset="100%" stop-color="#e60012"/>
-                    </linearGradient>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-                        <feMerge>
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                </defs>
-                <path fill="url(#wingGrad)" filter="url(#glow)" d="M256,32 C180,120 40,160 0,220 C80,210 160,240 220,300 C240,260 250,220 256,180 C262,220 272,260 292,300 C352,240 432,210 512,220 C472,160 332,120 256,32 Z"/>
-                <path fill="#ffffff" d="M256,180 C240,130 250,80 256,60 C262,80 272,130 256,180 Z"/>
-            </svg>
-        </div>
+        <canvas id="speedCanvas"></canvas>
+        <div class="laser-ring"></div>
+        <div class="shockwave"></div>
         <div class="intro-content">
             <h1 class="boom-text">DARRR! 💥</h1>
-            <p class="welcome-text">YAMAHA MAGELANG OFFICIAL</p>
+            <p class="welcome-text">YAMAHA SPEED & PERFORMANCE</p>
         </div>
     </div>
 
@@ -280,14 +262,53 @@
             },
         });
 
+        // Canvas Engine Speed Lines Animation
+        const canvas = document.getElementById('speedCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let stars = [];
+        for(let i = 0; i < 150; i++) {
+            stars.push({
+                x: Math.random() * canvas.width - canvas.width/2,
+                y: Math.random() * canvas.height - canvas.height/2,
+                z: Math.random() * canvas.width
+            });
+        }
+
+        function drawStars() {
+            ctx.fillStyle = "rgba(2, 4, 10, 0.3)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            let cx = canvas.width / 2;
+            let cy = canvas.height / 2;
+
+            stars.forEach(star => {
+                star.z -= 15;
+                if(star.z <= 0) star.z = canvas.width;
+
+                let x = (star.x / star.z) * canvas.width + cx;
+                let y = (star.y / star.z) * canvas.height + cy;
+                let size = (1 - star.z / canvas.width) * 4;
+
+                ctx.beginPath();
+                ctx.fillStyle = star.z < canvas.width/2 ? "#00d2ff" : "#e60012";
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+        drawStars();
+
+        // Auto Close Intro
         setTimeout(() => {
             const intro = document.getElementById('welcome-intro');
             intro.style.opacity = '0';
             intro.style.pointerEvents = 'none';
-            setTimeout(() => {
-                intro.style.display = 'none';
-            }, 800);
-        }, 3600);
+            setTimeout(() => { intro.style.display = 'none'; }, 800);
+        }, 3200);
     </script>
 </body>
 </html>
