@@ -1,4 +1,4 @@
-/* Global Reset */
+/* Reset Dasar */
 * {
     margin: 0;
     padding: 0;
@@ -7,221 +7,226 @@
 }
 
 body {
-    background-color: #f8fafc;
-    color: #1e293b;
-    line-height: 1.6;
+    background-color: #d1d5db; /* Warna abu-abu luar untuk tampilan desktop */
+    display: flex;
+    justify-content: center;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+/* Membatasi Ukuran Web Menjadi Ukuran HP (App Mockup) */
+.app-container {
+    width: 100%;
+    max-width: 480px; /* Lebar maksimal layaknya layar HP */
+    min-height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Header Navbar */
-.header {
-    background: #0f172a;
-    color: white;
-    padding: 16px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
+/* Header */
+.app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 20px;
+    background: white;
 }
 
-.logo {
+.logo .logo-red {
+    color: #e60012; /* Merah Yamaha */
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+.location {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: #38bdf8;
-    letter-spacing: 0.5px;
-}
-
-.contact-badge {
-    background: #25d366;
-    color: white;
-    padding: 6px 14px;
-    border-radius: 50px;
+    gap: 6px;
     font-size: 0.85rem;
     font-weight: 600;
+    color: #111827;
+}
+
+.location i { color: #002060; }
+.location .arrow { font-size: 0.7rem; color: #6b7280; }
+
+.notification {
+    background: #f3f4f6;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #4b5563;
+    font-size: 1.1rem;
+}
+
+/* Search Bar */
+.search-container {
+    padding: 5px 20px 15px 20px;
+}
+
+.search-box {
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 12px;
+    gap: 10px;
+}
+
+.search-box i { color: #9ca3af; }
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+/* Banner */
+.banner-container {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.banner-container img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Categories Horizontal Scroll */
+.category-scroll {
+    display: flex;
+    gap: 15px;
+    padding: 0 20px 10px 20px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.category-scroll::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+
+.cat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 70px;
+}
+
+.cat-icon {
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #002060;
+    transition: 0.2s;
+}
+
+.cat-item span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #4b5563;
+}
+
+/* Kategori Aktif (Seperti di Screenshot) */
+.cat-item.active .cat-icon {
+    background: #002060; /* Biru Gelap Yamaha */
+    border-color: #002060;
+    color: white;
+}
+.cat-item.active span {
+    color: #002060;
+}
+
+/* Product List */
+.product-list {
+    background: #f8fafc; /* Latar belakang abu-abu sangat muda khas aplikasi */
+    padding: 20px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    min-height: 50vh;
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Trik Latar Belakang Motor Rapi */
+.product-image-box {
+    background: #f1f5f9; /* Kotak abu-abu tempat motor berdiri */
+    border-radius: 12px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.product-image-box img {
+    width: 90%;
+    max-height: 100%;
+    object-fit: contain;
+    /* TRIK: Menghilangkan latar putih bawaan gambar dari Google */
+    mix-blend-mode: multiply; 
+}
+
+.product-info h3 {
+    font-size: 1.15rem;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.product-info .price {
+    font-size: 0.85rem;
+    color: #e60012; /* Merah Yamaha */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.detail-specs {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.detail-specs li {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 4px;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-/* Hero Banner Section */
-.hero {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
+.detail-specs li::before {
+    content: "•";
+    color: #002060;
+    font-weight: bold;
 }
 
-.hero-content h1 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.hero-content p {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Catalog Grid Section */
-.catalog-section {
-    padding: 40px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #0f172a;
-}
-
-.motor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
-
-/* Motor Card Styling */
-.motor-card {
-    background: #ffffff;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    border: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.motor-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.card-image {
-    position: relative;
-    background: #ffffff;
-    height: 210px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-bottom: 1px solid #f1f5f9;
-}
-
-.card-image img {
-    max-height: 150px;
+.btn-pesan {
+    display: block;
     width: 100%;
-    object-fit: contain;
-}
-
-/* Badges */
-.badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 6px;
-    color: white;
-}
-
-.badge.classy { background: #0d9488; }
-.badge.maxi { background: #dc2626; }
-.badge.sport { background: #2563eb; }
-.badge.matic { background: #ca8a04; }
-
-/* Card Body Content */
-.card-body {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.card-body h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 4px;
-}
-
-.tagline {
-    font-size: 0.8rem;
-    color: #64748b;
-    margin-bottom: 14px;
-    font-style: italic;
-}
-
-.spec-list {
-    list-style: none;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-.spec-list li {
-    font-size: 0.85rem;
-    color: #475569;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.spec-list li i {
-    color: #0ea5e9;
-    font-size: 0.8rem;
-}
-
-/* WhatsApp Button */
-.btn-wa {
-    background: #25d366;
+    text-align: center;
+    background: #002060;
     color: white;
     text-decoration: none;
-    text-align: center;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 10px;
     font-weight: 600;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: background 0.2s;
-}
-
-.btn-wa:hover {
-    background: #16a34a;
-}
-
-/* Footer */
-.footer {
-    background: #0f172a;
-    color: #94a3b8;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.85rem;
-    margin-top: 30px;
-}
-
-.footer a {
-    color: #38bdf8;
-    text-decoration: none;
+    font-size: 0.95rem;
 }
