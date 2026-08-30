@@ -1,5 +1,5 @@
 /* ===================================================
-   DESAIN YAMAHA RACING OFFICIAL (DARK OBSIDIAN THEME)
+   INTERACTIVE 3D YAMAHA CATALOG STYLING
    =================================================== */
 * {
     margin: 0;
@@ -34,108 +34,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ===================================================
-   ANIMASI INTRO: HYPER-SPEED LASER & SHOCKWAVE
-   =================================================== */
-#welcome-intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #02040a;
-    z-index: 99999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#speedCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.laser-ring {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 3px solid var(--yamaha-cyan);
-    box-shadow: 0 0 30px var(--yamaha-cyan), inset 0 0 30px var(--yamaha-cyan);
-    animation: ringExpand 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-    z-index: 2;
-}
-
-.shockwave {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 4px solid var(--yamaha-red);
-    box-shadow: 0 0 50px var(--yamaha-red);
-    animation: shockwaveBoom 0.8s ease-out 1.6s forwards;
-    opacity: 0;
-    z-index: 2;
-}
-
-.intro-content {
-    opacity: 0;
-    text-align: center;
-    z-index: 10;
-    animation: cameraShakeBoom 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1.7s forwards;
-}
-
-.boom-text {
-    font-size: 4.5rem;
-    font-weight: 900;
-    color: #ffffff;
-    text-shadow: 
-        0 0 10px #fff,
-        0 0 20px var(--yamaha-cyan),
-        0 0 40px var(--yamaha-red),
-        0 0 80px var(--yamaha-red);
-    letter-spacing: 4px;
-    font-style: italic;
-}
-
-.welcome-text {
-    font-size: 1rem;
-    color: var(--yamaha-cyan);
-    margin-top: 10px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-@keyframes ringExpand {
-    0% { transform: scale(1); opacity: 1; }
-    80% { opacity: 0.8; }
-    100% { transform: scale(80); opacity: 0; }
-}
-
-@keyframes shockwaveBoom {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(120); opacity: 0; }
-}
-
-@keyframes cameraShakeBoom {
-    0% { opacity: 0; transform: scale(0.3); }
-    50% { opacity: 1; transform: scale(1.2) translate(-5px, 5px); }
-    65% { transform: scale(1) translate(5px, -5px); }
-    80% { transform: scale(1.05) translate(-3px, 0); }
-    100% { opacity: 1; transform: scale(1) translate(0, 0); }
-}
-
-/* ===================================================
-   MAIN CONTAINER & KATALOG STYLING
-   =================================================== */
 .app-container {
     width: 100%;
     max-width: 480px;
@@ -188,6 +86,81 @@ body {
     box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
 }
 
+/* ===================================================
+   3D EXPLODED VIEW SECTION (PINNED ON SCROLL)
+   =================================================== */
+.section-3d-wrapper {
+    height: 180vh; /* Ruang scroll untuk animasi 3D */
+    position: relative;
+}
+
+.sticky-3d {
+    position: sticky;
+    top: 60px;
+    width: 100%;
+    height: 380px;
+    background: radial-gradient(circle, rgba(0, 32, 96, 0.4) 0%, rgba(2, 4, 10, 0.9) 100%);
+    border-bottom: 1px solid var(--card-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas-title {
+    position: absolute;
+    top: 15px;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.badge-3d {
+    background: var(--yamaha-red);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.canvas-title h2 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-top: 4px;
+}
+
+.instruction {
+    font-size: 0.7rem;
+    color: var(--yamaha-cyan);
+}
+
+#webgl-canvas {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.part-label {
+    position: absolute;
+    bottom: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--yamaha-cyan);
+    color: var(--yamaha-cyan);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ===================================================
+   PRODUCT LIST & CARD STYLING
+   =================================================== */
 .page-title {
     padding: 24px 20px 10px 20px;
     text-align: center;
