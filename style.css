@@ -1,88 +1,236 @@
+/* ===================================================
+   DESAIN PREMIUM YAMAHA OFFICIAL (DARK OBSIDIAN THEME)
+   =================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --yamaha-navy: #000c28;
+    --yamaha-blue: #002060;
+    --yamaha-red: #e60012;
+    --yamaha-cyan: #00d2ff;
+    --bg-dark: #050811;
+    --card-bg: #0d1322;
+    --card-border: rgba(0, 210, 255, 0.12);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
 }
 
 body {
-    background-color: #0f172a;
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 32, 96, 0.5) 0%, transparent 70%),
+        radial-gradient(circle at 100% 100%, rgba(230, 0, 18, 0.18) 0%, transparent 50%);
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    min-height: 100vh;
+    color: var(--text-main);
+    overflow-x: hidden;
 }
 
+/* ===================================================
+   ANIMASI INTRO BURUNG HD 3D MEWAH ("DARRR!")
+   =================================================== */
+#welcome-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #02040a;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 20%, #02040a 80%);
+}
+
+.bird-3d-wrapper {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    animation: zoomEagle3D 2.8s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+.hd-eagle {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 35px var(--yamaha-cyan));
+}
+
+.intro-content {
+    opacity: 0;
+    text-align: center;
+    transform: scale(0.2);
+    animation: boomTextAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.4s forwards;
+    z-index: 10;
+}
+
+.boom-text {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 
+        0 0 20px var(--yamaha-red),
+        0 0 40px var(--yamaha-red),
+        0 0 80px var(--yamaha-red);
+    letter-spacing: 3px;
+}
+
+.welcome-text {
+    font-size: 0.95rem;
+    color: var(--yamaha-cyan);
+    margin-top: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+@keyframes zoomEagle3D {
+    0% {
+        transform: scale(0.1) translate(-300px, 200px) rotate(-20deg);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    75% {
+        transform: scale(4.5) translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(22) translate(0, 0);
+        opacity: 0;
+    }
+}
+
+@keyframes boomTextAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===================================================
+   MAIN CONTAINER & STYLING KATALOG
+   =================================================== */
 .app-container {
     width: 100%;
     max-width: 480px;
-    background-color: #f8fafc;
+    background: rgba(13, 19, 34, 0.85);
+    backdrop-filter: blur(16px);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
     min-height: 100vh;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
 }
 
 .app-header {
-    background: #002060;
-    color: white;
-    padding: 16px 20px;
+    background: linear-gradient(135deg, var(--yamaha-blue), var(--yamaha-navy));
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid var(--yamaha-red);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 
 .logo .brand {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #e60012;
-    letter-spacing: 1px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 2px;
 }
 
 .logo .sub-brand {
     font-size: 0.85rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-left: 5px;
+    font-weight: 800;
+    color: var(--yamaha-red);
+    margin-left: 4px;
+    font-style: italic;
 }
 
 .header-contact {
-    background: #25d366;
+    background: linear-gradient(45deg, #25d366, #0e9f52);
     color: white;
     font-size: 0.75rem;
-    font-weight: 700;
-    padding: 6px 12px;
+    font-weight: 800;
+    padding: 8px 14px;
     border-radius: 20px;
     text-decoration: none;
+    box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
 }
 
 .page-title {
-    padding: 20px 20px 10px 20px;
+    padding: 24px 20px 10px 20px;
     text-align: center;
 }
 
 .page-title h2 {
-    font-size: 1.1rem;
-    color: #0f172a;
-    font-weight: 800;
+    font-size: 1.15rem;
+    color: #ffffff;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
 .page-title p {
     font-size: 0.78rem;
-    color: #64748b;
+    color: var(--yamaha-cyan);
+    margin-top: 4px;
 }
 
+/* ===================================================
+   PRODUCT CARD & SWIPER SLIDER
+   =================================================== */
 .product-list {
-    padding: 10px 16px 20px 16px;
+    padding: 12px 16px 24px 16px;
 }
 
 .product-card {
-    background: #ffffff;
-    border-radius: 16px;
+    background: var(--card-bg);
+    border-radius: 18px;
     padding: 16px;
-    margin-bottom: 20px;
-    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+    border: 1px solid var(--card-border);
     position: relative;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--yamaha-red), var(--yamaha-cyan));
 }
 
 .badge-tag {
@@ -90,69 +238,80 @@ body {
     top: 14px;
     left: 14px;
     font-size: 0.65rem;
-    font-weight: 800;
-    padding: 4px 10px;
+    font-weight: 900;
+    padding: 5px 12px;
     border-radius: 6px;
     color: white;
     z-index: 10;
+    letter-spacing: 1px;
 }
 
 .badge-tag.classy { background: #0d9488; }
-.badge-tag.maxi { background: #e60012; }
-.badge-tag.sport { background: #2563eb; }
+.badge-tag.maxi { background: var(--yamaha-red); }
+.badge-tag.sport { background: var(--yamaha-blue); }
+.badge-tag.matic { background: #4f46e5; }
 
-/* Swiper Slider Styling */
 .swiper {
     width: 100%;
-    height: 190px;
+    height: 195px;
     border-radius: 12px;
-    background: #ffffff;
-    margin-bottom: 12px;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.3) 100%);
+    margin-bottom: 14px;
 }
 
 .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 8px;
 }
 
 .swiper-slide img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.7));
+}
+
+.swiper-pagination-bullet {
+    background: #ffffff !important;
+    opacity: 0.3;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #e60012 !important;
+    background: var(--yamaha-red) !important;
+    width: 18px !important;
+    border-radius: 6px !important;
+    opacity: 1;
 }
 
 .product-info h3 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 800;
-    color: #0f172a;
+    color: #ffffff;
     margin-bottom: 4px;
 }
 
 .price-tag {
     font-size: 0.8rem;
     font-weight: 700;
-    color: #e60012;
-    margin-bottom: 12px;
+    color: var(--yamaha-cyan);
+    margin-bottom: 14px;
 }
 
 .spec-table {
-    background: #f8fafc;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 14px;
-    border: 1px solid #f1f5f9;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .spec-row {
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
-    border-bottom: 1px dashed #e2e8f0;
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
 }
 
 .spec-row:last-child {
@@ -162,13 +321,14 @@ body {
 .spec-label {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #002060;
+    color: var(--text-muted);
 }
 
 .spec-val {
     font-size: 0.75rem;
-    color: #334155;
+    color: #ffffff;
     font-weight: 600;
+    text-align: right;
 }
 
 .btn-wa-order {
@@ -176,20 +336,32 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: #25d366;
+    background: linear-gradient(45deg, var(--yamaha-red), #b9000e);
     color: white;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-weight: 800;
+    font-size: 0.88rem;
     padding: 12px;
     border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-wa-order:active {
+    transform: scale(0.97);
 }
 
 .app-footer {
     text-align: center;
-    padding: 20px;
-    font-size: 0.75rem;
-    color: #64748b;
-    background: #ffffff;
-    border-top: 1px solid #e2e8f0;
+    padding: 24px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    background: rgba(2, 4, 10, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto;
+}
+
+.app-footer strong {
+    color: #ffffff;
 }
