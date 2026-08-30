@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yamaha Magelang - E-Katalog Official</title>
+    
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS (Pustaka Slider) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,7 +30,7 @@
 
         <div class="page-title">
             <h2>E-KATALOG PRODUK RESMI</h2>
-            <p>Pilihan Lengkap Motor Yamaha</p>
+            <p>Geser gambar untuk melihat varian warna & sisi lain</p>
         </div>
 
         <div class="product-list">
@@ -32,9 +38,23 @@
             <!-- 1. GRAND FILANO -->
             <div class="product-card">
                 <div class="badge-tag classy">CLASSY</div>
-                <div class="product-image-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/2023_Yamaha_Grand_Filano_Hybrid_Lux.jpg/800px-2023_Yamaha_Grand_Filano_Hybrid_Lux.jpg" alt="Grand Filano">
+                
+                <!-- Swiper Slider Container -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/2023_Yamaha_Grand_Filano_Hybrid_Lux.jpg/800px-2023_Yamaha_Grand_Filano_Hybrid_Lux.jpg" alt="Grand Filano Lux">
+                        </div>
+                        <!-- Slide 2 (Nanti bisa diganti foto file Anda sendiri) -->
+                        <div class="swiper-slide">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/2023_Yamaha_Grand_Filano_Hybrid_Lux.jpg/800px-2023_Yamaha_Grand_Filano_Hybrid_Lux.jpg" alt="Grand Filano Neo">
+                        </div>
+                    </div>
+                    <!-- Titik Navigasi Slider -->
+                    <div class="swiper-pagination"></div>
                 </div>
+
                 <div class="product-info">
                     <h3>Grand Filano Hybrid Connected</h3>
                     <div class="price-tag">Tipe: LUX & NEO</div>
@@ -43,34 +63,28 @@
                         <div class="spec-row"><span class="spec-label">Fitur</span><span class="spec-val">Smart Key, TFT Sub Display, Y-Connect</span></div>
                         <div class="spec-row"><span class="spec-label">Bagasi</span><span class="spec-val">27 Liter + Lampu LED</span></div>
                     </div>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20Grand%20Filano." class="btn-wa-order" target="_blank"><i class="fa-brands fa-whatsapp"></i> Tanya Sales</a>
+                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20Grand%20Filano." class="btn-wa-order" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya Sales
+                    </a>
                 </div>
             </div>
 
-            <!-- 2. FAZZIO -->
-            <div class="product-card">
-                <div class="badge-tag classy">CLASSY</div>
-                <div class="product-image-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Yamaha_Fazzio_Hybrid_Lux.jpg/800px-Yamaha_Fazzio_Hybrid_Lux.jpg" alt="Fazzio">
-                </div>
-                <div class="product-info">
-                    <h3>Fazzio Hybrid Connected</h3>
-                    <div class="price-tag">Tipe: LUX & NEO</div>
-                    <div class="spec-table">
-                        <div class="spec-row"><span class="spec-label">Mesin</span><span class="spec-val">125cc Blue Core Hybrid</span></div>
-                        <div class="spec-row"><span class="spec-label">Fitur</span><span class="spec-val">Y-Connect, Smart Key, Double Hook</span></div>
-                        <div class="spec-row"><span class="spec-label">Bagasi</span><span class="spec-val">17.8 Liter</span></div>
-                    </div>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20Fazzio." class="btn-wa-order" target="_blank"><i class="fa-brands fa-whatsapp"></i> Tanya Sales</a>
-                </div>
-            </div>
-
-            <!-- 3. NMAX -->
+            <!-- 2. NMAX -->
             <div class="product-card">
                 <div class="badge-tag maxi">MAXI</div>
-                <div class="product-image-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Yamaha_NMAX_155_2020.jpg/800px-Yamaha_NMAX_155_2020.jpg" alt="NMAX">
+                
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Yamaha_NMAX_155_2020.jpg/800px-Yamaha_NMAX_155_2020.jpg" alt="NMAX Depan">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Yamaha_NMAX_155_2020.jpg/800px-Yamaha_NMAX_155_2020.jpg" alt="NMAX Samping">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
+
                 <div class="product-info">
                     <h3>All New NMAX 155 Connected</h3>
                     <div class="price-tag">Tipe: Standard / Connected / ABS</div>
@@ -79,16 +93,28 @@
                         <div class="spec-row"><span class="spec-label">Fitur</span><span class="spec-val">Smart Key, Sub Tank Suspension</span></div>
                         <div class="spec-row"><span class="spec-label">Rem</span><span class="spec-val">Dual Channel ABS & TCS</span></div>
                     </div>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20NMAX." class="btn-wa-order" target="_blank"><i class="fa-brands fa-whatsapp"></i> Tanya Sales</a>
+                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20NMAX." class="btn-wa-order" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya Sales
+                    </a>
                 </div>
             </div>
 
-            <!-- 4. AEROX 155 -->
+            <!-- 3. AEROX 155 -->
             <div class="product-card">
                 <div class="badge-tag sport">SPORTY</div>
-                <div class="product-image-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/2021_Yamaha_Aerox_155_Connected.jpg/800px-2021_Yamaha_Aerox_155_Connected.jpg" alt="Aerox 155">
+                
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/2021_Yamaha_Aerox_155_Connected.jpg/800px-2021_Yamaha_Aerox_155_Connected.jpg" alt="Aerox 155">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/2021_Yamaha_Aerox_155_Connected.jpg/800px-2021_Yamaha_Aerox_155_Connected.jpg" alt="Aerox Varian">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
+
                 <div class="product-info">
                     <h3>Aerox 155 Connected</h3>
                     <div class="price-tag">Tipe: Standard / CyberCity / ABS</div>
@@ -97,25 +123,9 @@
                         <div class="spec-row"><span class="spec-label">Fitur</span><span class="spec-val">Speedometer Full Digital, Smart Key</span></div>
                         <div class="spec-row"><span class="spec-label">Bagasi</span><span class="spec-val">24.5 Liter (Muat Helm)</span></div>
                     </div>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20Aerox." class="btn-wa-order" target="_blank"><i class="fa-brands fa-whatsapp"></i> Tanya Sales</a>
-                </div>
-            </div>
-
-            <!-- 5. XMAX 250 -->
-            <div class="product-card">
-                <div class="badge-tag maxi">MAXI 250</div>
-                <div class="product-image-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Yamaha_XMAX_250.jpg/800px-Yamaha_XMAX_250.jpg" alt="XMAX 250">
-                </div>
-                <div class="product-info">
-                    <h3>XMAX Connected 250</h3>
-                    <div class="price-tag">Tipe: Premium Maxi Scooter</div>
-                    <div class="spec-table">
-                        <div class="spec-row"><span class="spec-label">Mesin</span><span class="spec-val">250cc Blue Core Liquid Cooled</span></div>
-                        <div class="spec-row"><span class="spec-label">Fitur</span><span class="spec-val">TFT Display Navigasi, Smart Key</span></div>
-                        <div class="spec-row"><span class="spec-label">Rem</span><span class="spec-val">ABS Dual Channel & TCS</span></div>
-                    </div>
-                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20XMAX." class="btn-wa-order" target="_blank"><i class="fa-brands fa-whatsapp"></i> Tanya Sales</a>
+                    <a href="https://wa.me/6288980942762?text=Halo%20Mas%20Kevin,%20minta%20info%20kredit%20Aerox." class="btn-wa-order" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya Sales
+                    </a>
                 </div>
             </div>
 
@@ -123,10 +133,22 @@
 
         <footer class="app-footer">
             <p><strong>Yamaha Sales Magelang Official</strong></p>
-            <p>WhatsApp: 08222-2027-0373 | Instagram: @ya_rositt</p>
+            <p>WhatsApp: 0889-8094-2762 | Instagram: @ya_rositt</p>
         </footer>
 
     </div>
 
+    <!-- Swiper JS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Inisialisasi Slider Gambar Per Kartu Produk
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
 </body>
 </html>
